@@ -106,11 +106,11 @@ a {
   }
 } */
 
-/* Box sizing rules * <--CSS RESET / 
+/* Box sizing rules  <--CSS RESET */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* Remove default margin */
@@ -138,8 +138,7 @@ html:focus-within {
     scroll-behavior: smooth;
 }
 
-/* Set core body defaults */
-body {
+Set core body defaults body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
