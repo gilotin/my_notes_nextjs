@@ -57,6 +57,7 @@ export default function Register() {
                     placeholder="password"
                 />
                 <button onClick={onRegister}>Register</button>
+                <Link href="/login">Are you registered already?</Link>
             </form>
         </div>
     );

@@ -34,12 +34,13 @@ html:focus-within {
 
 body {
     min-height: 100vh;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
-    background-image: url("/public/background/white-painted-wood-textured-background.jpg");
+    background-color: rgb(241, 235, 235);
+    background-image: url("https://i.pinimg.com/originals/5b/be/e9/5bbee9b08f6d1eafb014269ac137ae1f.jpg"); /* <--- not working ??? WHY ??*/
+    background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
     padding: 0;
     font-family: "Amatic SC", cursive;
     font-size: 1.5rem;
