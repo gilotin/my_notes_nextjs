@@ -30,8 +30,16 @@
     justify-content: center;
 }
 
-.form button {
+.button {
     border-radius: 4px;
     margin: 1rem;
     width: 100px;
+}
+
+.disabled {
+    border-radius: 4px;
+    margin: 1rem;
+    width: 100px;
+    background-color: lightgray;
+    color: rgb(240, 239, 239);
 }
