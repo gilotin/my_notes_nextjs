@@ -20,14 +20,31 @@ export default function RegisterPage() {
 
     const [buttonDisabled, setButtonDisabled] = useState(true);
 
-    const [loading, setLoading] = useState(true); //<-- to implement spinner on the register button
+    const [loading, setLoading] = useState(true);
 
-    const onRegister = async () => {
+    const onRegister = async (e: any) => {
+        e.preventDefault();
         try {
-            setLoading(true);
-            const response = await axios.post("/api/users/register", user);
-            console.log("Registration successful", response.data);
+            const response = await fetch("/api/users/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Registration failed with status ${response.status}`);
+            }
+
+            const data = await response.json();
+            console.log("Registration successful", data);
             router.push("/login");
+
+            // setLoading(true);
+            // const response = await axios.post("/api/users/register", user);
+            // console.log("Registration successful", response.data);
+            // router.push("/login");
         } catch (error: any) {
             console.log("Registration failed", error.message);
 
@@ -52,7 +69,7 @@ export default function RegisterPage() {
 
     return (
         <div className={styles.container}>
-            <div className={styles.form}>
+            <form className={styles.form} onSubmit={onRegister}>
                 <h1>register</h1>
 
                 <label className={styles.label} htmlFor="username">
@@ -92,14 +109,15 @@ export default function RegisterPage() {
                     placeholder="password"
                 />
                 <button
-                    onClick={onRegister}
+                    type="submit"
+                    // onClick={onRegister}
                     className={buttonDisabled ? styles.disabled : styles.button}
                     disabled={buttonDisabled ? true : false}
                 >
                     {loading ? "Register" : "Loading..."}
                 </button>
                 <Link href="/login">Are you registered already?</Link>
-            </div>
+            </form>
         </div>
     );
 }
