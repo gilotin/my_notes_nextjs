@@ -1,6 +1,7 @@
 import Link from "next/link";
 import "./globals.css";
 import type { Metadata } from "next";
+import toast from "react-hot-toast";
 
 export const metadata: Metadata = {
     title: "noteBook",
