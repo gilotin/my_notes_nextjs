@@ -42,10 +42,6 @@ export default function LoginPage() {
         }
     }
 
-    // useEffect(() => {
-
-    // }, [user]);
-
     return (
         <div className={styles.container}>
             <form className={styles.form} onSubmit={(e) => onLogin(e)}>
