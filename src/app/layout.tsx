@@ -2,9 +2,10 @@ import Link from "next/link";
 import "./globals.css";
 import type { Metadata } from "next";
 import toast from "react-hot-toast";
+import Navigation from "./components/navigation/page";
 
 export const metadata: Metadata = {
-    title: "noteBook",
+    title: "noteBookApp",
     description: "portfolio project created by Nikolay Toshev",
 };
 
@@ -13,27 +14,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en">
             <body>
                 <header>
-                    <nav>
-                        <ul role="list">
-                            <li>
-                                <Link href="/login">Login</Link>
-                            </li>
-                            <li>
-                                <Link href="/register">Register</Link>
-                            </li>
-                            <li>
-                                <Link href="/profile">Profile</Link>
-                            </li>
-                            <li>
-                                <Link href="/logout">Logout</Link>
-                            </li>
-                        </ul>
-                    </nav>
+                    <Navigation />
                 </header>
                 {children}
-                <footer>
-                    <p>This is test app - 2023 All rights reserved</p>
-                </footer>
+                <footer></footer>
             </body>
         </html>
     );
