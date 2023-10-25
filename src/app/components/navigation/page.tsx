@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getDataFromToken } from "@/helpers/getDataFromToken";
 
 export default function Navigation() {
     return (
