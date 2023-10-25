@@ -1,10 +1,11 @@
 "use client";
 import User from "@/models/userModel";
 import { log } from "console";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function ProfilePage() {
-    const [userData, setUserData] = useState({ username: "", email: "", id: "" });
+    const [userData, setUserData] = useState({ username: "buddy", email: "", _id: "" });
 
     useEffect(() => {
         const getUserDetails = async () => {
@@ -27,6 +28,7 @@ export default function ProfilePage() {
     return (
         <>
             <h1>Welcome {userData.username}</h1>
+            <Link href={`/profile/${userData._id}`}>settings</Link>
         </>
     );
 }

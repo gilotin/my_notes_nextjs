@@ -1,7 +1,6 @@
-import Link from "next/link";
 import "./globals.css";
+import styles from "./page.module.css";
 import type { Metadata } from "next";
-import toast from "react-hot-toast";
 import Navigation from "./components/navigation/page";
 
 export const metadata: Metadata = {
@@ -16,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <header>
                     <Navigation />
                 </header>
-                {children}
+                <main className={styles.main}>{children}</main>
                 <footer></footer>
             </body>
         </html>
