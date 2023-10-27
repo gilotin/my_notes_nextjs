@@ -1,6 +1,5 @@
 import User from "@/models/userModel";
 import bcryptjs from "bcryptjs";
-import { verify } from "crypto";
 import nodemailer from "nodemailer";
 
 export async function sendEmail({ email, emailType, userId }: any) {
@@ -31,7 +30,7 @@ export async function sendEmail({ email, emailType, userId }: any) {
         });
 
         const mailOptions = {
-            from: "test@abv.bg",
+            from: "notebook_app@test.com", //fake test email.
             to: email,
             subject: emailType === "VERIFY" ? "Verify your email." : "Reset your password.",
             html: `<p>Click <a href="${
