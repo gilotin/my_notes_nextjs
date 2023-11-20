@@ -5,8 +5,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "../register/register.module.css";
 import toast from "react-hot-toast";
-import axios from "axios";
-import { on } from "events";
 
 export default function RegisterPage() {
     const router = useRouter();
@@ -40,11 +38,6 @@ export default function RegisterPage() {
             const data = await response.json();
             console.log("Registration successful", data);
             router.push("/login");
-
-            // setLoading(true);
-            // const response = await axios.post("/api/users/register", user);
-            // console.log("Registration successful", response.data);
-            // router.push("/login");
         } catch (error: any) {
             console.log("Registration failed", error.message);
 

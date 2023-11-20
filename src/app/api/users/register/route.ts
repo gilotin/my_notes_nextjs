@@ -7,13 +7,9 @@ import { sendEmail } from "@/helpers/mailer";
 connect();
 
 export async function POST(request: NextRequest) {
-    console.log(`post request beginning`);
-
     try {
         const reqBody = await request.json();
         const { username, email, password } = reqBody;
-
-        console.log(reqBody);
 
         const user = await User.findOne({ email });
 
@@ -32,15 +28,11 @@ export async function POST(request: NextRequest) {
 
         const savedUser = await newUser.save();
 
-        console.log(savedUser);
-
-        //send verification email
-
         await sendEmail({ email, emailType: "VERIFY", userId: savedUser._id });
         return NextResponse.json({
             message: "User is created successfully",
             success: true,
-            savedUser,
+            savedUser, // to check and remove
         });
     } catch (error: any) {
         return NextResponse.json({ error: error.message }, { status: 500 });
